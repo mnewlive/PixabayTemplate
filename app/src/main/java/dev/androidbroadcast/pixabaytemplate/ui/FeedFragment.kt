@@ -1,7 +1,6 @@
 package dev.androidbroadcast.pixabaytemplate.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,5 +41,12 @@ class FeedFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    companion object {
+        fun newInstance(title: String): FeedFragment {
+            val args = Bundle().apply { putString("title", title) }
+            return FeedFragment().apply { arguments = args }
+        }
     }
 }
